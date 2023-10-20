@@ -16,3 +16,4 @@ export {
   type Expectation,
 } from "./levels";
 export { Tracks, type Track } from "./tracks";
+export { type UUID } from "./types";

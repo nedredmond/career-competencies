@@ -1,15 +1,14 @@
 import type { Competency, Expectation } from ".";
+import type { UUID } from "./types";
 
-type UUID = ReturnType<typeof crypto.randomUUID>;
-
-export type Skill = {
+export type SkillSchema = {
   competency: Competency;
   expectation: Expectation;
   id: UUID;
   description: string;
 };
 
-export const Skills: { [id: UUID]: Skill } = {
+export const Skills = {
   // Delivering Results
   // Beginner
   "6a4d548a-4243-46b4-85e2-fffe85174be6": {
@@ -908,4 +907,6 @@ export const Skills: { [id: UUID]: Skill } = {
     id: "0dee92a9-fe41-412b-b11d-5d73aeec870d",
     description: "You make hard decisions in the face of uncertainty.",
   },
-};
+} as const;
+
+export type Skill = SkillSchema & (typeof Skills)[keyof typeof Skills];

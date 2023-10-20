@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
-import { createContext, useContext, useEffect, useReducer } from "react";
-import type { State, Action } from "./types";
+import { useEffect, useReducer } from "react";
 import { dataReducer } from "./reducer";
+import { DataContext, DataDispatchContext } from "./context";
+import { getData } from "./getData";
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [userCompetencies, dispatch] = useReducer(dataReducer, getData());
@@ -17,18 +18,4 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       </DataDispatchContext.Provider>
     </DataContext.Provider>
   );
-};
-export const useData = () => {
-  return useContext(DataContext);
-};
-export const useDataDispatch = () => {
-  return useContext(DataDispatchContext);
-};
-
-const DataContext = createContext<State>({});
-const DataDispatchContext = createContext<React.Dispatch<Action>>(() => {});
-
-const getData = (): State => {
-  const data = localStorage.getItem("competenciesData");
-  return data ? JSON.parse(data) : {};
 };

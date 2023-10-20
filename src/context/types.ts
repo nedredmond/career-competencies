@@ -1,4 +1,4 @@
-import type { Level, Skill, Track } from "../data";
+import type { Level, Skill, Track, UUID } from "../data";
 
 type SkillAction = {
   type: "checked" | "unchecked";
@@ -6,8 +6,10 @@ type SkillAction = {
 };
 type ExamplesChangedAction = {
   type: "examples-updated";
-  id: Skill["id"];
-  data: string[];
+  data: {
+    examples: string[];
+    id: UUID;
+  };
 };
 type UserDataUpdatedAction = {
   type: "user-data-updated";
@@ -23,7 +25,6 @@ export type Action =
   | UserDataUpdatedAction
   | ImportDataAction;
 
-type SkillState = Partial<Skill> & { checked?: boolean; examples?: string[] };
 type User = {
   firstName: string;
   lastName: string;
@@ -32,6 +33,6 @@ type User = {
   declaredLevel: Level;
 };
 export type State = {
-  skills?: Record<Skill["id"], SkillState>;
+  skills?: Record<UUID, { checked?: boolean; examples?: string[] }>;
   user?: User;
 };
