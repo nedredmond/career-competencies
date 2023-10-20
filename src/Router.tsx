@@ -1,7 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
-import "./App.css";
 
 const router = createBrowserRouter([
   {

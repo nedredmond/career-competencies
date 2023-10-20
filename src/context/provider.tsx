@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { useEffect, useReducer } from "react";
 import { dataReducer } from "./reducer";
 import { DataContext, DataDispatchContext } from "./context";
-import { getData } from "./getData";
+import { getData } from "./get-data";
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [userCompetencies, dispatch] = useReducer(dataReducer, getData());
