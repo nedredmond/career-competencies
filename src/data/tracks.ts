@@ -6,3 +6,5 @@ export const Tracks = [
     "Quality Analyst",
     "Quality Engineer",
 ]
+
+export type Track = typeof Tracks[number];
