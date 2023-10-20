@@ -16,7 +16,10 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "@typescript-eslint/consistent-type-imports": "error",
-    "import/no-internal-modules": ["error", { allow: ["**/assets/*"] }],
+    "import/no-internal-modules": [
+      "error",
+      { allow: ["**/assets/*", "**/node_modules/**"] },
+    ],
   },
   settings: {
     "import/parsers": {
