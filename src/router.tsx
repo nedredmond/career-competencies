@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Nav } from "./routes";
+import { Nav, Overview, Result } from "./routes";
 import { DefaultThingForTest } from "./routes/vite-react";
 
 const router = createBrowserRouter([
@@ -10,6 +10,14 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <DefaultThingForTest />
+      },
+      {
+        path: "overview",
+        element: <Overview />
+      },
+      {
+        path: "result",
+        element: <Result />
       }
     ]
   },

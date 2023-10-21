@@ -5,6 +5,7 @@
     left: 0;
     margin: 0 auto;
     width: 100%;
+    background-color: #242424;
 }
 
 #footer ul {
@@ -16,4 +17,10 @@
 
 #footer a.active {
     text-decoration: underline;
+}
+
+@media (prefers-color-scheme: light) {
+    #footer {
+        background-color: #ffffff;
+    }
 }
