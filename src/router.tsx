@@ -1,6 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Nav, Overview, Result } from "./routes";
-import { DefaultThingForTest } from "./routes/vite-react";
+import { Nav, Overview, Result, DefaultThingForTest } from "./routes";
 
 const router = createBrowserRouter([
   {
