@@ -1,4 +1,5 @@
-import { Competencies, type Competency, Skills } from ".";
+import { Competencies, type Competency } from "./competencies";
+import { Skills } from "./skills";
 import { Expectations } from "./levels";
 
 export const Matrix = Object.keys(Competencies).map((competencyKey) => (

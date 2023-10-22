@@ -2,7 +2,7 @@
  *  Per John Resig and Dian Rosile, these base competencies will replaced with
  *  new competencie that may vary by role, track, and level.
  */
-export { Competencies, type Competency } from "./competencies";
+export type { Competency } from "./competencies";
 export { Skills, type Skill } from "./skills";
 export { Matrix } from "./matrix";
 
