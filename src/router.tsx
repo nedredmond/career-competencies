@@ -20,7 +20,9 @@ const router = createBrowserRouter([
       }
     ]
   },
-]);
+], {
+  basename: "/career-competencies",
+});
 
 const Router = () => <RouterProvider router={router} />;
 
