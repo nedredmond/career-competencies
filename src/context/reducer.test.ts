@@ -50,7 +50,9 @@ describe("dataReducer", () => {
       },
     };
     const newState = dataReducer(initialState, action);
-    expect(newState?.skills?.[action.data.id].examples).toEqual(action.data);
+    expect(newState?.skills?.[action.data.id].examples).toEqual(
+      action.data.examples,
+    );
   });
 
   it("should remove a skill from state without losing examples", () => {
