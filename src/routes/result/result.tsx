@@ -1,3 +1,3 @@
 export const Result = () => {
-    return (<>:)</>)
-}
+  return <>:)</>;
+};

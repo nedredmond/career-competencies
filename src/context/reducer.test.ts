@@ -35,9 +35,9 @@ describe("dataReducer", () => {
     };
     const newState = dataReducer(initialState, action);
     expect(newState?.skills?.[action.data.id]).toEqual({
-        checked: true,
-        examples: [],
-        ...action.data,
+      checked: true,
+      examples: [],
+      ...action.data,
     });
   });
 
@@ -61,7 +61,7 @@ describe("dataReducer", () => {
     const newState = dataReducer(initialState, action);
     expect(newState.skills![SkillIDs[0]].checked).toBe(false);
     expect(newState.skills![SkillIDs[0]].examples).toEqual(
-      initialState.skills![SkillIDs[0]].examples
+      initialState.skills![SkillIDs[0]].examples,
     );
   });
 
@@ -125,7 +125,7 @@ describe("dataReducer", () => {
       data: Skills[SkillIDs[3] as keyof typeof Skills],
     };
     expect(() => dataReducer(initialState, action)).toThrow(
-      "Cannot uncheck unattained skill"
+      "Cannot uncheck unattained skill",
     );
   });
 });

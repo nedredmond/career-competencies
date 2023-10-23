@@ -9,5 +9,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <DataProvider>
       <Router />
     </DataProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

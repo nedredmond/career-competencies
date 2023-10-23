@@ -1,15 +1,15 @@
 #overview {
-    text-align: left;
+  text-align: left;
 }
 
 summary {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 details[open] > summary {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-details > *:not(summary){
-    margin-left: 1em;
-  }
+details > *:not(summary) {
+  margin-left: 1em;
+}

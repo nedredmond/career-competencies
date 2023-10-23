@@ -11,6 +11,7 @@ export { Matrix } from "./matrix";
  *  are going to record the data in anticipation of future use per above note
  */
 export {
+  Expectations,
   ExpectationLevelMap,
   Levels,
   type Level,

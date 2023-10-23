@@ -1,10 +1,11 @@
-import { Matrix } from "../../data"
-import { CompetencyItem } from "./competency"
-import "./overview.css"
+import { Matrix } from "../../data";
+import { CompetencyItem } from "./competency";
+import "./overview.css";
 
-export const Overview = () => 
-    <span id="overview">
-        {Matrix.map((competency) => (
-            <CompetencyItem key={competency.key} competency={competency} />
-        ))}
-    </span>
+export const Overview = () => (
+  <span id="overview">
+    {Matrix.map((competency) => (
+      <CompetencyItem key={competency.key} competency={competency} />
+    ))}
+  </span>
+);
