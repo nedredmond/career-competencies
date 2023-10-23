@@ -30,6 +30,14 @@ export const Nav = () => (
             Result
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/questionnaire"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Questionnaire
+          </NavLink>
+        </li>
       </ul>
     </nav>
   </>
