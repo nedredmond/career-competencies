@@ -15,7 +15,8 @@ export const Prompt = () => {
   return (
     <div id="prompt">
       <Checkbox
-        labelledBy={""}
+        id={skill.id}
+        labelledBy={skill.id}
         checked={skillState.checked ?? false}
         handleClick={() =>
           dispatch(
@@ -32,6 +33,45 @@ export const Prompt = () => {
         }
       />
       <label htmlFor={skill.id}>{skill.description}</label>
+      {/* {skillState.checked ? (
+        <span id="examples">
+          <h6>
+            Provide some examples of how you have demonstrated this skill.
+          </h6>
+          {skillState.examples?.map((example, index) => (
+            <input
+              key={example}
+              type="text"
+              value={example}
+              onChange={(e) => {
+                const newExamples = [...(skillState.examples ?? [])];
+                newExamples[index] = e.target.value;
+                dispatch({
+                  type: "examples-updated",
+                  data: {
+                    id: skill.id,
+                    examples: newExamples,
+                  },
+                });
+              }}
+            />
+          ))}
+          <input
+            type="text"
+            onChange={(e) => {
+              const newExamples = [...(skillState.examples ?? [])];
+              newExamples[newExamples.length] = e.target.value;
+              dispatch({
+                type: "examples-updated",
+                data: {
+                  id: skill.id,
+                  examples: newExamples,
+                },
+              });
+            }}
+          />
+        </span>
+      ) : null} */}
     </div>
   );
 };
