@@ -1,0 +1,13 @@
+#prompt {
+  place-content: center;
+}
+
+#prompt input[type="checkbox"] {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1 + 1vw); /* IE */
+  -moz-transform: scale(1 + 1vw); /* FF */
+  -webkit-transform: scale(1 + 1vw); /* Safari and Chrome */
+  -o-transform: scale(1 + 1vw); /* Opera */
+  transform: scale(1 + 1vw);
+  padding: 10px;
+}

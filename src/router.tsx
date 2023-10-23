@@ -4,13 +4,7 @@ import {
   createHashRouter,
   redirect,
 } from "react-router-dom";
-import {
-  Nav,
-  Overview,
-  Result,
-  Prompt,
-  promptLoader,
-} from "./routes";
+import { Nav, Overview, Result, Prompt, promptLoader } from "./routes";
 
 const router = createHashRouter([
   {

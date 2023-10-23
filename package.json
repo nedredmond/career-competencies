@@ -7,10 +7,14 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "fix": "bun run lint && prettier --write .",
+    "prettier:write": "prettier --write .",
+    "fix": "bun run lint && bun run prettier:write",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@khanacademy/wonder-blocks-clickable": "^4.0.8",
+    "@khanacademy/wonder-blocks-icon": "^2.2.0",
+    "@phosphor-icons/core": "^2.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0"
