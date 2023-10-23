@@ -25,7 +25,7 @@ export const dataReducer = (state: State, action: Action): State => {
           ...state.skills,
           [data.id]: {
             ...state.skills?.[data.id],
-            examples: data,
+            examples: data.examples,
           },
         },
       };
