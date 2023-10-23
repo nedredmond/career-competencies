@@ -8,14 +8,6 @@ export const Nav = () => (
       <ul>
         <li>
           <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Test
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
             to="/overview"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
@@ -24,18 +16,18 @@ export const Nav = () => (
         </li>
         <li>
           <NavLink
-            to="/result"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Result
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
             to="/questionnaire"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Questionnaire
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/result"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Result
           </NavLink>
         </li>
       </ul>

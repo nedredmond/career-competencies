@@ -8,7 +8,6 @@ import {
   Nav,
   Overview,
   Result,
-  DefaultThingForTest,
   Prompt,
   promptLoader,
 } from "./routes";
@@ -20,7 +19,7 @@ const router = createHashRouter([
     children: [
       {
         path: "",
-        element: <DefaultThingForTest />,
+        loader: () => redirect("/overview"),
       },
       {
         path: "overview",
