@@ -1,0 +1,15 @@
+#overview {
+    text-align: left;
+}
+
+summary {
+    cursor: pointer;
+}
+
+details[open] > summary {
+    text-decoration: underline;
+}
+
+details > *:not(summary){
+    margin-left: 1em;
+  }

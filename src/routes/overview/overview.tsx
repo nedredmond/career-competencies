@@ -1,19 +1,20 @@
 import { Matrix } from "../../data"
+import "./overview.css"
 
 export const Overview = () => {
-    return (<>
+    return (<span id="overview">
     {Matrix.map((competency) => (
-        <>
-            <h1>{competency.title}</h1>
+        <details key={competency.key}>
+            <summary>{competency.title}</summary>
             {competency.expectations.map((expectation) => (
-                <>
-                    <h2>{expectation.title}</h2>
+                <details key={expectation.key}>
+                    <summary>{expectation.title}</summary>
                     {expectation.skills.map((skill) => (
-                        <h3>{skill.description}</h3>
+                        <p key={skill.id}>{skill.description}</p>
                     ))}
-                </>
+                </details>
             ))}
-        </>
+        </details>
     ))}
-    </>)
+    </span>)
 }
