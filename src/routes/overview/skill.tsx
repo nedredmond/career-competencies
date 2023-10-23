@@ -3,7 +3,7 @@ import type { Skill } from "../../data";
 
 export const SkillItem = ({ skill }: { skill: Skill }) => (
   <p>
-    <NavLink to={`/questionnaire/prompt/${skill.id}`}>
+    <NavLink to={`/questionnaire/skill/${skill.id}`}>
       {skill.description}
     </NavLink>
   </p>

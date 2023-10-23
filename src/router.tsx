@@ -33,7 +33,7 @@ const router = createHashRouter([
         ),
         children: [
           {
-            path: "prompt/:id",
+            path: "skill/:id",
             loader: promptLoader,
             element: <Prompt />,
           },
