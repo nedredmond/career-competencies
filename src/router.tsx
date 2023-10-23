@@ -22,7 +22,7 @@ const router = createBrowserRouter(
       ],
     },
     {
-      path: "*",
+      path: "/*",
       loader: () => redirect("/"),
     },
   ],
