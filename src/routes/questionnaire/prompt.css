@@ -1,5 +1,9 @@
 #prompt {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   place-content: center;
+  width: 100%;
 }
 
 #prompt input[type="checkbox"] {
