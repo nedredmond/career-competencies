@@ -1,7 +1,7 @@
-import { RouterProvider, createBrowserRouter, redirect } from "react-router-dom";
+import { RouterProvider, createHashRouter, redirect } from "react-router-dom";
 import { Nav, Overview, Result, DefaultThingForTest } from "./routes";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
     {
       path: "/",
@@ -26,9 +26,6 @@ const router = createBrowserRouter(
       loader: () => redirect("/"),
     },
   ],
-  {
-    basename: "/career-competencies",
-  },
 );
 
 const Router = () => <RouterProvider router={router} />;
