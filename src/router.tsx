@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, redirect } from "react-router-dom";
 import { Nav, Overview, Result, DefaultThingForTest } from "./routes";
 
 const router = createBrowserRouter(
@@ -20,6 +20,10 @@ const router = createBrowserRouter(
           element: <Result />,
         },
       ],
+    },
+    {
+      path: "*",
+      loader: () => redirect("/"),
     },
   ],
   {
