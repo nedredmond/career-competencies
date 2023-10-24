@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   place-content: center;
   width: 100%;
+  text-align: center;
 }
 
 #prompt input[type="checkbox"] {

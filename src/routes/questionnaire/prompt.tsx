@@ -4,6 +4,7 @@ import { useData, useDataDispatch } from "../../context";
 
 import "./prompt.css";
 import { Checkbox } from "../../components";
+import { Competencies } from "../../data";
 
 export const Prompt = () => {
   const { skill } = useLoaderData() as { skill: Skill };
@@ -11,13 +12,17 @@ export const Prompt = () => {
   const dispatch = useDataDispatch();
 
   const skillState = skills?.[skill.id] ?? {};
+  const competency = Competencies[skill.competency];
 
   return (
     <div id="prompt">
+      <h3>{competency.title}</h3>
+      <label htmlFor={skill.id}><h4>{skill.description}</h4></label>
       <Checkbox
         id={skill.id}
         labelledBy={skill.id}
         checked={skillState.checked ?? false}
+        style={{ paddingTop: "2em"}}
         handleClick={() =>
           dispatch(
             skillState.checked
@@ -32,7 +37,6 @@ export const Prompt = () => {
           )
         }
       />
-      <label htmlFor={skill.id}>{skill.description}</label>
       {/* {skillState.checked ? (
         <span id="examples">
           <h6>
