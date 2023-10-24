@@ -18,14 +18,17 @@ export const dataReducer = (state: State, action: Action): State => {
       };
     }
     // update examples for skill in state
-    case "examples-updated": {
+    case "example-updated": {
       return {
         ...state,
         skills: {
           ...state.skills,
           [data.skillId]: {
             ...state.skills?.[data.skillId],
-            examples: data.examples,
+            examples: { 
+              ...state.skills?.[data.skillId]?.examples,
+              [data.example.key]: data.example.value
+             },
           },
         },
       };

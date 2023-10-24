@@ -4,11 +4,12 @@ type SkillAction = {
   type: "checked" | "unchecked";
   data: Skill;
 };
-type ExamplesChangedAction = {
-  type: "examples-updated";
+type ExampleUpdatedAction = {
+  type: "example-updated";
   data: {
-    examples: {
-      [key: UUID]: string;
+    example: {
+      key: UUID;
+      value: string;
     };
     skillId: UUID;
   };
@@ -23,7 +24,7 @@ type ImportDataAction = {
 };
 export type Action =
   | SkillAction
-  | ExamplesChangedAction
+  | ExampleUpdatedAction
   | UserDataUpdatedAction
   | ImportDataAction;
 
@@ -35,6 +36,9 @@ type User = {
   declaredLevel: Level;
 };
 export type State = {
-  skills?: Record<UUID, { checked?: boolean; examples?: string[] }>;
+  skills?: Record<
+    UUID,
+    { checked?: boolean; examples?: { [key: UUID]: string } }
+  >;
   user?: User;
 };
