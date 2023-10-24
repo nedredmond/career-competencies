@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import type { Skill } from "../../data";
 import { useData, useDataDispatch } from "../../context";
 
-import "./prompt.css";
+import "./questionnaire.css";
 import { Checkbox } from "../../components";
 import { Competencies } from "../../data";
 import { Examples } from "./examples";
@@ -41,7 +41,7 @@ export const Prompt = () => {
         }
       />
       {skillState.checked ? (
-        <Examples id={skill.id} examples={skillState.examples ?? []} />
+        <Examples skillId={skill.id} examples={skillState.examples ?? {}} />
       ) : null}
     </div>
   );

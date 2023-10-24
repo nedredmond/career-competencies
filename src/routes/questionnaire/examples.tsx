@@ -3,11 +3,11 @@ import { useDataDispatch } from "../../context";
 import type { UUID } from "../../data";
 
 export const Examples = ({
-  id,
+  skillId,
   examples,
 }: {
-  id: UUID;
-  examples: string[];
+  skillId: UUID;
+  examples: { [key: UUID]: string };
 }) => {
   const dispatch = useDataDispatch();
   const itemsRef = useRef<Map<string, HTMLInputElement>>();
@@ -29,24 +29,34 @@ export const Examples = ({
     }
   };
 
-  const exampleInputs = [...examples, ""];
-  const exampleValues = Array.from(getMap().values()).map((node) => node.value);
+  // create an empty input to invite the user to add an example
+  const exampleInputs = { ...examples };
+  exampleInputs[crypto.randomUUID()] = "";
 
   return (
     <div>
-      <h3>Examples</h3>
+      <h3>
+        Great! Please provide some examples of how you demonstrate this skill.
+      </h3>
       <ul>
-        {exampleInputs.map((example) => (
-          <li key={example ?? "new-example"}>
+        {Object.keys(exampleInputs).map((key, i) => (
+          <li key={key}>
             <input
-              ref={(node) => setMap(example, node)}
-              value={example}
-              onChange={() =>
+              type="text"
+              ref={(node) => setMap(key, node)}
+              value={exampleInputs[key as UUID]}
+              placeholder={
+                i === 0 ? "I demonstrate this skill by..." : "Add another example"
+              }
+              onChange={(e) =>
                 dispatch({
-                  type: "examples-updated",
+                  type: "example-updated",
                   data: {
-                    id,
-                    examples: exampleValues.filter((val) => val),
+                    skillId,
+                    example: {
+                      key: key as UUID,
+                      value: e.target.value,
+                    },
                   },
                 })
               }

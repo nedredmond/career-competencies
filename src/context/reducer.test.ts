@@ -18,14 +18,17 @@ describe("dataReducer", () => {
     skills: {
       "1-1-1-1-1": {
         checked: false,
-        examples: [],
+        examples: {},
       },
     },
   };
 
   initialState.skills![SkillIDs[0]] = {
     checked: true,
-    examples: ["example 1", "example 2"],
+    examples: {
+      [crypto.randomUUID()]: "example 1",
+      [crypto.randomUUID()]: "example 2",
+    },
   };
 
   it("should add a skill to state", () => {
@@ -43,17 +46,21 @@ describe("dataReducer", () => {
 
   it("should update examples for a skill in state", () => {
     const action: Action = {
-      type: "examples-updated",
+      type: "example-updated",
       data: {
         skillId: "2-2-2-2-2",
-        examples: {},
+        example: {
+          key: crypto.randomUUID(),
+          value: "new example",
+        },
       },
     };
-    action.data.examples[crypto.randomUUID()] = "new example";
     const newState = dataReducer(initialState, action);
-    expect(newState?.skills?.[action.data.skillId].examples).toEqual(
-      action.data.examples,
-    );
+    expect(
+      newState?.skills?.[action.data.skillId].examples?.[
+        action.data.example.key as UUID
+      ],
+    ).toEqual(action.data.example.value);
   });
 
   it("should remove a skill from state without losing examples", () => {
@@ -97,15 +104,20 @@ describe("dataReducer", () => {
         skills: {
           "1-2-3-4-5": {
             checked: false,
-            examples: [],
+            examples: {},
           },
           "5-4-3-2-1": {
             checked: true,
-            examples: ["example 1", "example 2"],
+            examples: {
+              [crypto.randomUUID()]: "example 1",
+              [crypto.randomUUID()]: "example 2",
+            },
           },
           "6-7-8-9-0": {
             checked: true,
-            examples: ["example 3"],
+            examples: {
+              [crypto.randomUUID()]: "example 3",
+            },
           },
         },
       },
