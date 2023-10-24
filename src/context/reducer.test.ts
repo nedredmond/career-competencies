@@ -45,12 +45,13 @@ describe("dataReducer", () => {
     const action: Action = {
       type: "examples-updated",
       data: {
-        id: "2-2-2-2-2",
-        examples: ["new example"],
+        skillId: "2-2-2-2-2",
+        examples: {},
       },
     };
+    action.data.examples[crypto.randomUUID()] = "new example";
     const newState = dataReducer(initialState, action);
-    expect(newState?.skills?.[action.data.id].examples).toEqual(
+    expect(newState?.skills?.[action.data.skillId].examples).toEqual(
       action.data.examples,
     );
   });

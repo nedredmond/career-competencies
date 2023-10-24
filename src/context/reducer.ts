@@ -23,8 +23,8 @@ export const dataReducer = (state: State, action: Action): State => {
         ...state,
         skills: {
           ...state.skills,
-          [data.id]: {
-            ...state.skills?.[data.id],
+          [data.skillId]: {
+            ...state.skills?.[data.skillId],
             examples: data.examples,
           },
         },

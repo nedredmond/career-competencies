@@ -7,8 +7,10 @@ type SkillAction = {
 type ExamplesChangedAction = {
   type: "examples-updated";
   data: {
-    examples: string[];
-    id: UUID;
+    examples: {
+      [key: UUID]: string;
+    };
+    skillId: UUID;
   };
 };
 type UserDataUpdatedAction = {
