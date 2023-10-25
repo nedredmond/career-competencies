@@ -54,3 +54,7 @@ div.questionnaire-nav {
   align-items: center;
   width: 100%;
 }
+
+div.questionnaire-nav > a.nav-btn {
+  padding: 1rem 0;
+}
