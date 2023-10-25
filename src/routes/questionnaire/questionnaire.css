@@ -55,6 +55,6 @@ div.questionnaire-nav {
   width: 100%;
 }
 
-div.questionnaire-nav > a.nav-btn {
+div.questionnaire-nav > a {
   padding: 1rem 0;
 }
