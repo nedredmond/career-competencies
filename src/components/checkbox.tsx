@@ -3,9 +3,10 @@ import circleCheckedIcon from "@phosphor-icons/core/regular/check-circle.svg";
 import { PhosphorIcon } from "@khanacademy/wonder-blocks-icon";
 import Clickable from "@khanacademy/wonder-blocks-clickable";
 import type { CheckboxProps } from "./types";
+import "./checkbox.css"
 
 export const Checkbox = ({
-  labelledBy,
+  label,
   checked,
   handleClick,
   ...props
@@ -13,8 +14,9 @@ export const Checkbox = ({
   <Clickable
     role="checkbox"
     onClick={handleClick}
-    aria-labelledby={labelledBy}
+    aria-label={label}
     aria-checked={checked}
+    id="checkbox"
   >
     {() => (
       <PhosphorIcon

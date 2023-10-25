@@ -19,7 +19,7 @@ export const Prompt = () => {
       <SkillNav skill={skill} />
       <Checkbox
         id={skill.id}
-        labelledBy={skill.id}
+        label={"I can demonstrate this skill: " + skill.description}
         checked={skillState.checked ?? false}
         style={{ paddingTop: "2em" }}
         handleClick={() =>

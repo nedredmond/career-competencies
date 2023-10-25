@@ -33,12 +33,14 @@ export const SkillNav = ({ skill }: { skill: Skill }) => {
         <NavArrow
           direction="left"
           double
+          label={"previous competency"}
           path={basePath + jumpToNextCompetency(skill, true)}
         />
         <h3 id="competency">{competency.title}</h3>
         <NavArrow
           direction="right"
           double
+          label={"next competency"}
           path={basePath + jumpToNextCompetency(skill)}
         />
       </div>
@@ -48,7 +50,7 @@ export const SkillNav = ({ skill }: { skill: Skill }) => {
           label={"previous skill"}
           path={basePath + getNextSkill(skill, true)}
         />
-        <label htmlFor={skill.id}>{skill.description}</label>
+        <span>{skill.description}</span>
         <NavArrow
           direction="right"
           label={"next skill"}

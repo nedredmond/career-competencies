@@ -10,9 +10,10 @@ export const NavArrow = ({
   direction,
   double,
   path,
+  label,
   ...props
 }: NavArrowProps) => (
-  <NavLink to={path}>
+  <NavLink to={path} aria-label={label}>
     <PhosphorIcon
       icon={
         direction === "left"
