@@ -1,10 +1,10 @@
 import type { Level, Skill, Track, UUID } from "../data";
 
-type SkillAction = {
+interface SkillAction {
   type: "checked" | "unchecked";
   data: Skill;
-};
-type ExampleUpdatedAction = {
+}
+interface ExampleUpdatedAction {
   type: "example-updated";
   data: {
     example: {
@@ -13,32 +13,29 @@ type ExampleUpdatedAction = {
     };
     skillId: UUID;
   };
-};
-type UserDataUpdatedAction = {
+}
+interface UserDataUpdatedAction {
   type: "user-data-updated";
   data: User;
-};
-type ImportDataAction = {
+}
+interface ImportDataAction {
   type: "data-imported";
   data: State;
-};
+}
 export type Action =
   | SkillAction
   | ExampleUpdatedAction
   | UserDataUpdatedAction
   | ImportDataAction;
 
-type User = {
+interface User {
   firstName: string;
   lastName: string;
   email: string;
   track: Track;
   declaredLevel: Level;
-};
-export type State = {
-  skills?: Record<
-    UUID,
-    { checked?: boolean; examples?: { [key: UUID]: string } }
-  >;
+}
+export interface State {
+  skills?: Record<UUID, { checked?: boolean; examples?: Record<UUID, string> }>;
   user?: User;
-};
+}
