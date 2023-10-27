@@ -22,6 +22,6 @@ jobs:
       - name: Lint
         run: bun run lint:ci
       - name: Run Tests
-        run: npm test
+        run: bun test
       - name: Building
         run: bun run build
