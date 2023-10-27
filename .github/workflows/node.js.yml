@@ -5,24 +5,23 @@ name: Bun CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Bun
-      uses: oven-sh/setup-bun@v1
-    - name: Install Deps
-      run: bun install --frozen-lockfile
-    - name: Lint
-      run: bun run lint:ci
-    - name: Run Tests
-      run: npm test
-    - name: Building
-      run: bun run build
+      - uses: actions/checkout@v3
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v1
+      - name: Install Deps
+        run: bun install --frozen-lockfile
+      - name: Lint
+        run: bun run lint:ci
+      - name: Run Tests
+        run: npm test
+      - name: Building
+        run: bun run build
