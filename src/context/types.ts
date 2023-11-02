@@ -28,12 +28,12 @@ export type Action =
   | UserDataUpdatedAction
   | ImportDataAction;
 
-interface User {
+export interface User {
   firstName: string;
   lastName: string;
   email: string;
-  track: Track;
-  declaredLevel: string;
+  track?: Track;
+  declaredLevel: string | null;
 }
 export interface State {
   skills?: Record<

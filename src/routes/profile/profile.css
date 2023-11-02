@@ -1,0 +1,35 @@
+#profile-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 5em;
+  row-gap: 1em;
+}
+
+.form__input {
+  width: 100%;
+  min-height: 3em;
+  padding-inline: unset;
+}
+
+#form__save-button {
+  text-align: center;
+  margin-top: 1em;
+  background-color: #646cff !important;
+  color: white;
+}
+
+#form__save-button:hover {
+  background-color: #535bf2 !important;
+}
+
+@media (prefers-color-scheme: light) {
+  #form__save-button:hover {
+    background-color: #747bff;
+  }
+}
+
+input[type="email"]::placeholder {
+  /* Firefox, Chrome, Opera */
+  text-align: center;
+}
