@@ -3,24 +3,25 @@ import { Competencies } from "./competencies";
 import { Skills } from "./skills";
 import type { Expectation } from "./expectations";
 import { Expectations } from "./expectations";
+import type { Track } from "./tracks";
 
 const PrimaryExpectations = Expectations.filter(
   (e) => !e.partial,
 ) as readonly Expectation[];
 
-export const Matrix: {
-  byCompetency: (Competency & {
-    expectations: (Expectation & {
-      skills: (typeof Skills)[keyof typeof Skills][];
-    })[];
-  })[];
-  byExpectation: (Expectation & {
-    competencies: (Competency & {
-      skills: (typeof Skills)[keyof typeof Skills][];
-    })[];
-  })[];
-} = {
-  byCompetency: Competencies.map((competency) => ({
+const filterByTrack = (competency: Competency, selectedTrack: Track) => {
+  return competency.track === "Core" || selectedTrack === competency.track;
+};
+
+export const Matrix = (
+  selectedTrack: Track,
+): {
+  byCompetency: MatrixCompetencyItem[];
+  byExpectation: MatrixExpectationItem[];
+} => ({
+  byCompetency: Competencies.filter((competency) =>
+    filterByTrack(competency, selectedTrack),
+  ).map((competency) => ({
     ...competency,
     expectations: PrimaryExpectations.map((expectation) => ({
       ...expectation,
@@ -33,7 +34,9 @@ export const Matrix: {
   })),
   byExpectation: PrimaryExpectations.map((expectation) => ({
     ...expectation,
-    competencies: Competencies.map((competency) => ({
+    competencies: Competencies.filter((competency) =>
+      filterByTrack(competency, selectedTrack),
+    ).map((competency) => ({
       ...competency,
       skills: Object.values(Skills).filter(
         (skill) =>
@@ -42,4 +45,16 @@ export const Matrix: {
       ),
     })),
   })),
-};
+});
+
+export interface MatrixCompetencyItem extends Competency {
+  expectations: (Expectation & {
+    skills: (typeof Skills)[keyof typeof Skills][];
+  })[];
+}
+
+export interface MatrixExpectationItem extends Expectation {
+  competencies: (Competency & {
+    skills: (typeof Skills)[keyof typeof Skills][];
+  })[];
+}
