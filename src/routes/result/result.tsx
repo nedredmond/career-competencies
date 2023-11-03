@@ -1,5 +1,6 @@
 import { useData } from "../../context";
 import { calculateCompetencies, getLevel, getTrack } from "../../data";
+import { RadarGraph } from "./radar-graph";
 import "./result.css";
 
 export const Result = () => {
@@ -16,33 +17,36 @@ export const Result = () => {
   );
 
   return (
-    <table id="result-table">
-      <thead>
-        <tr>
-          <th scope="col">Competency</th>
-          <th scope="col">Expectation</th>
-        </tr>
-      </thead>
-      <tbody>
-        {competencyExpectations.map(([c, e]) => (
-          <tr key={c.key}>
-            <td>{c.title}</td>
-            <td>{e.title}</td>
-          </tr>
-        ))}
-      </tbody>
-      <tfoot>
-        <tr>
-          <th>Overall Expectation</th>
-          <td>{overallExpectation.title}</td>
-        </tr>
-        {levelMapping && (
+    <div id="result">
+      <table id="result-table">
+        <thead>
           <tr>
-            <th>LEVEL MAPPING</th>
-            <td>{levelMapping}</td>
+            <th scope="col">Competency</th>
+            <th scope="col">Expectation</th>
           </tr>
-        )}
-      </tfoot>
-    </table>
+        </thead>
+        <tbody>
+          {competencyExpectations.map(([c, e]) => (
+            <tr key={c.key}>
+              <td>{c.title}</td>
+              <td>{e.title}</td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Overall Expectation</th>
+            <td>{overallExpectation.title}</td>
+          </tr>
+          {levelMapping && (
+            <tr>
+              <th>LEVEL MAPPING</th>
+              <td>{levelMapping}</td>
+            </tr>
+          )}
+        </tfoot>
+      </table>
+      <RadarGraph />
+    </div>
   );
 };
