@@ -186,7 +186,9 @@ export const RadarGraph = () => {
         borderWidth: 1,
       },
       {
-        label: levelMapping + " Expectations",
+        label: levelMapping
+          ? levelMapping + " Expectations"
+          : "Current Expectations",
         data: radarDataPoints.map(() => overallExpectation.value),
         fill: true,
         backgroundColor: "rgba(255, 255, 255, 0)",
@@ -194,7 +196,9 @@ export const RadarGraph = () => {
         borderWidth: 4,
       },
       {
-        label: promotionLabel + " Promotion Expectations",
+        label: promotionLabel
+          ? promotionLabel + " Promotion Expectations"
+          : "Next Level Expectations",
         data: radarDataPoints.map(() => overallExpectation.value + 1),
         fill: true,
         backgroundColor: "rgba(255, 139, 34, 0)",
