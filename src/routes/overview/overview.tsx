@@ -1,3 +1,4 @@
+import { Link } from "reactrouter";
 import { useData } from "../../context";
 import { Matrix, getTrack } from "../../data";
 import { CompetencyItem } from "./competency";
@@ -6,13 +7,13 @@ import "./overview.css";
 export const Overview = () => {
   const { user } = useData();
   const track = user?.track ?? getTrack("core");
-  const functions = user?.track?.functions ?? ["core"];
+  const functions = user?.track?.functions ?? ["Core"];
   return (
     <span id="overview">
       {user?.track?.title ? (
         <h3>Competencies for {user.track.title}</h3>
       ) : (
-        <h3>Track not selected; visit </h3>
+        <h3>Track not selected. Please visit <Link to="/profile">Profile</Link>.</h3>
       )}
       {functions.map((funcArea) => (
         <>
