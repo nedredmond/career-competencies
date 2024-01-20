@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink } from "reactrouter";
 import type { Skill, UUID } from "../../../data";
 import { useData, useDataDispatch } from "../../../context";
 import { Examples, ExpandToggle, examplesId } from "./examples";

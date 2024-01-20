@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "reactrouter";
 import type { UUID } from "../../../../data";
 import { examplesId } from "./utils";
 

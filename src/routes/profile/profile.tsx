@@ -6,17 +6,14 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import type { ChangeEvent } from "react";
 import type { User } from "../../context";
 
-import type {
-  unstable_Blocker as Blocker,
-  unstable_BlockerFunction as BlockerFn,
-} from "react-router-dom";
-import { unstable_useBlocker as useBlocker } from "react-router-dom";
+import { useBlocker } from "reactrouter";
+import type { Blocker, BlockerFunction } from "reactrouter";
 
 export const Profile = () => {
   const { user } = useData();
   const { track } = user ?? {};
 
-  const shouldBlock = useCallback<BlockerFn>(
+  const shouldBlock = useCallback<BlockerFunction>(
     ({ currentLocation, nextLocation }) =>
       !track &&
       "/profile" === currentLocation.pathname &&

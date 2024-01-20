@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from "reactrouter";
 import { Competencies, type Skill } from "../../data";
 import { useData, useDataDispatch } from "../../context";
 

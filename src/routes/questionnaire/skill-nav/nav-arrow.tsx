@@ -3,7 +3,7 @@ import caretRight from "@phosphor-icons/core/regular/caret-right.svg";
 import caretDoubleLeft from "@phosphor-icons/core/regular/caret-double-left.svg";
 import caretDoubleRight from "@phosphor-icons/core/regular/caret-double-right.svg";
 import { PhosphorIcon } from "@khanacademy/wonder-blocks-icon";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "reactrouter";
 
 export interface NavArrowProps {
   path: string;

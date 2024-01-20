@@ -1,4 +1,4 @@
-import { redirect, type LoaderFunction } from "react-router-dom";
+import { redirect, type LoaderFunction } from "reactrouter";
 import { Skills } from "../../data";
 
 export const loader: LoaderFunction = ({ params }) => {

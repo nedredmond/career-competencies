@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from "reactrouter";
 import { Nav } from "./nav";
 import { Header } from "./header";
 

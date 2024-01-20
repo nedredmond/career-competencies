@@ -3,7 +3,7 @@ import {
   RouterProvider,
   createHashRouter,
   redirect,
-} from "react-router-dom";
+} from "reactrouter";
 import {
   Root,
   Overview,
