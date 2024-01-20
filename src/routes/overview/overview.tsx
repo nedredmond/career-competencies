@@ -13,7 +13,9 @@ export const Overview = () => {
       {user?.track?.title ? (
         <h3>Competencies for {user.track.title}</h3>
       ) : (
-        <h3>Track not selected. Please visit <Link to="/profile">Profile</Link>.</h3>
+        <h3>
+          Track not selected. Please visit <Link to="/profile">Profile</Link>.
+        </h3>
       )}
       {functions.map((funcArea) => (
         <>
